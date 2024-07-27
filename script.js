@@ -17,6 +17,12 @@ window.onload = () => {
 
     }
 
+    // Generate the array of characters
+    const letters = charRange('A', 'J');
+
+    // Apply createLabel to each character
+    letters.forEach(createLabel);
+
 }
 
 /*
