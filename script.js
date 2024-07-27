@@ -30,6 +30,7 @@ window.onload = () => {
             const input = document.createElement("input");
             input.type = "text";
             input.ariaLabel = letter + number;
+            input.onchange = update;
             container.appendChild(input);
         });
     });
@@ -51,3 +52,39 @@ parameters:
 2.end
 */
 const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0)).map((code) => String.fromCharCode(code));
+
+const sum = (nums) => {
+    nums.reduce((sum, currentElement) => {
+        return sum + currentElement;
+    }, 0);
+}
+
+const isEven = (num) => {
+    if(num % 2 === 0) {
+        return true;
+    }else {
+        return false;
+    }
+}
+
+const average = (nums) => sum(nums) / nums.length;
+
+const median = (nums => {
+    const sorted = nums.slice().sort((a,b) => a-b);
+    const length = sorted.length;
+    const middle = length / 2 - 1;
+    return isEven(length)
+    ? average([sorted[middle], sorted[middle + 1]])
+    : sorted[Math.ceil(middle)];
+});
+
+
+const spreadsheetFunctions = {
+    sum,
+    average,
+    median,
+};
+
+const update = (event) => {
+    const element = event.target;
+}
