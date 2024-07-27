@@ -23,6 +23,17 @@ window.onload = () => {
     // Apply createLabel to each character
     letters.forEach(createLabel);
 
+    //For each number from 1 to 99, and for each letter from 'A' to 'J', creates an input field, sets its aria-label with the letter and number, and then adds the input field to the page.
+    range(1, 99).forEach((number) => {
+        createLabel(number);
+        letters.forEach((letter) => {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.ariaLabel = letter + number;
+            container.appendChild(input);
+        });
+    });
+
 }
 
 /*
