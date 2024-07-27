@@ -16,13 +16,21 @@ window.onload = () => {
         container.appendChild(label);
 
     }
-    
-    /*
-    description: function to generate array of numbers from start to end
-    parameters:
-    1.start
-    2.end
-    */
-    const range = (start, end) => Array(end - start + 1);
 
 }
+
+/*
+description: function to generate array of numbers from start to end
+parameters:
+1.start
+2.end
+*/
+const range = (start, end) => Array(end - start + 1).fill(start).map((element, index) => element + index);
+
+/*
+description: function to generate array of characters from start to end
+parameters:
+1.start
+2.end
+*/
+const charRange = (start, end) => range(start.charCodeAt(0), end.charCodeAt(0)).map((code) => String.fromCharCode(code));
